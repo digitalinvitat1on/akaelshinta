@@ -217,3 +217,38 @@ body {
 .timeline-item:hover .timeline-marker {
     background-color: var(--accent-color);
 }
+/* ==========================================================================
+   BUTTON MUSIK MELAYANG (FLOATING)
+   ========================================================================== */
+.btn-music-floating {
+    position: fixed;
+    bottom: 30px;
+    right: 30px; /* Bisa diganti 'left: 30px' jika kanan bawah menumpuk dengan tombol lain */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--accent-color, #b5838d);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.btn-music-floating:hover {
+    transform: scale(1.1);
+    background-color: var(--accent-hover, #a06e78);
+}
+
+/* Efek berputar saat musik menyala */
+.rotate-animation {
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
