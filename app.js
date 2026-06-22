@@ -35,3 +35,35 @@ document.addEventListener("DOMContentLoaded", () => {
         AOS.refresh();
     });
 });
+// CONFIGURASI MUSIK LATAR
+const music = document.getElementById('background-music');
+const musicBtn = document.getElementById('music-control');
+const musicIcon = document.getElementById('music-icon');
+
+// Fungsi untuk pasang/lepas status putar musik
+musicBtn.addEventListener('click', function() {
+    if (music.paused) {
+        music.play();
+        musicIcon.classList.remove('fa-music');
+        musicIcon.classList.add('fa-pause'); // Mengubah ikon jadi pause
+        musicBtn.classList.add('rotate-animation'); // Efek tombol berputar
+    } else {
+        music.pause();
+        musicIcon.classList.remove('fa-pause');
+        musicIcon.classList.add('fa-music'); // Mengubah ikon kembali ke musik
+        musicBtn.classList.remove('rotate-animation');
+    }
+});
+
+// BONUS OTMOTIS: Jika Anda punya tombol "Buka Undangan", 
+// Anda bisa memicu musik berputar otomatis begitu tombol tersebut diklik.
+// Contoh jalurnya:
+const btnBukaUndangan = document.querySelector('.btn-buka-undangan'); // sesuaikan class tombol buka Anda
+if(btnBukaUndangan) {
+    btnBukaUndangan.addEventListener('click', function() {
+        music.play();
+        musicIcon.classList.remove('fa-music');
+        musicIcon.classList.add('fa-pause');
+        musicBtn.classList.add('rotate-animation');
+    });
+}
